@@ -41,46 +41,56 @@ function checkScore(){
     }
 }
 
+const newDiv = document.createElement('div');
+
 function playRound(playerSelection) {
     let computerChoice = getComputerChoice();
     if (playerSelection === "rock" && computerChoice === "paper") {
         computerScore++;
-        result = "Computer wins: ";
-        container.appendChild(document.createElement('div')).innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        result = "Computer wins: paper beats rock. ";
+        newDiv.innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        container.appendChild(newDiv);
         checkScore();
     }
     else if (playerSelection === "scissors" && computerChoice === "paper") {
         humanScore++;
-        result = "You win";
-        container.appendChild(document.createElement('div')).innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        result = "You win: scissors beats paper.";
+        newDiv.innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        container.appendChild(newDiv);
         checkScore();
     }
     else if (playerSelection === "paper" && computerChoice === "rock") {
         humanScore++;
-        result = "You win";
-        container.appendChild(document.createElement('div')).innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        result = "You win: paper beats rock.";
+        newDiv.innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        container.appendChild(newDiv);
         checkScore();
     }
     else if (playerSelection === "scissors" && computerChoice === "rock") {
         computerScore++;
-        result = "Computer wins";
-        container.appendChild(document.createElement('div')).innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        result = "Computer wins: rock beats scissors.";
+        newDiv.innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        container.appendChild(newDiv);
+        checkScore();
     }
     else if (playerSelection === "paper" && computerChoice === "scissors") {
         computerScore++;
-        result = "Computer wins";
-        container.appendChild(document.createElement('div')).innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        result = "Computer wins: scissors beats rock.";
+        newDiv.innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        container.appendChild(newDiv);
         checkScore();
     }
     else if (playerSelection === "rock" && computerChoice === "scissors") {
         humanScore++;
-        result = "You win";
-        container.appendChild(document.createElement('div')).innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        result = "You win: rock beats scissors.";
+        newDiv.innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        container.appendChild(newDiv);
         checkScore();
     }
     else {
-        result = "No one wins";
-        container.appendChild(document.createElement('div')).innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        result = "No one wins: you and the computer chose the same item.";
+        newDiv.innerHTML = result + "<br> Computer score = " + computerScore + " Human Score = " + humanScore;
+        container.appendChild(newDiv);
         checkScore();
     }
 }
